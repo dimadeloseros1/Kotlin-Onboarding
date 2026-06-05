@@ -54,8 +54,7 @@ fun safeReadLine(): String {
 
     if (a != null) {
         return a
-    }
-    else {
+    } else {
         error("The value is null")
     }
 }
@@ -72,5 +71,17 @@ fun chooseFilter(): String {
                 println("Please input 'borders' or 'squared'")
             }
         }
+    } while (true)
+}
+
+fun choosePicture(): String {
+    val pictures = allPictures()
+
+    do {
+        println("Please choose a picture. The possible options are: ${pictures.forEach { picture -> println(picture) }}")
+        when (val input: String = safeReadLine()) {
+
+        }
+
     } while (true)
 }
