@@ -75,17 +75,16 @@ fun chooseFilter(): String {
 }
 
 fun choosePicture(): String {
-    val pictures = allPictures()
+    var chosenPicture: String?
+
     do {
-        println("Please choose a picture. The possible options are: $pictures")
-        val pictureByName = getPictureByName()
-        when (val input: String = safeReadLine()) {
-            "spongeBob", "simba", "brianGriffin", "cat", "pig", "fox", "monkey", "elephant", "android", "apple" -> {
-                return input
-            }
-
-            else -> println("Please choose again")
+        println("Please choose a picture. The possible options are: ${allPictures().joinToString(", ")}. Type 'exit' to cancel.")
+        val input = safeReadLine()
+        chosenPicture = when (input) {
+            in allPictures() -> getPictureByName(input) ?: error("Picture not found: $input")
+            else -> null
         }
+    } while (chosenPicture == null)
 
-    } while (true)
+    return chosenPicture
 }
