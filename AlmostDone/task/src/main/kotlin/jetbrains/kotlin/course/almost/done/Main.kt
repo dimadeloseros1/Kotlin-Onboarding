@@ -76,11 +76,15 @@ fun chooseFilter(): String {
 
 fun choosePicture(): String {
     val pictures = allPictures()
-
     do {
-        println("Please choose a picture. The possible options are: ${pictures.forEach { picture -> println(picture) }}")
+        println("Please choose a picture. The possible options are: $pictures")
+        val pictureByName = getPictureByName()
         when (val input: String = safeReadLine()) {
+            "spongeBob", "simba", "brianGriffin", "cat", "pig", "fox", "monkey", "elephant", "android", "apple" -> {
+                return input
+            }
 
+            else -> println("Please choose again")
         }
 
     } while (true)
