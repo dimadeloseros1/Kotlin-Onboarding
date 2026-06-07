@@ -88,3 +88,24 @@ fun choosePicture(): String {
 
     return chosenPicture
 }
+
+fun getPicture(): String {
+    do {
+        println("Do you want to use a predefined picture or a custom one? Please input 'yes' for a predefined image or 'no' for a custom one")
+        val input = safeReadLine()
+
+        when (input) {
+            "yes" -> {
+                return choosePicture()
+            }
+            "no" -> {
+                println("Please input a custom picture")
+                val customPicture = safeReadLine()
+                return customPicture
+            }
+            else -> {
+                println("Please input 'yes' or 'no'")
+            }
+        }
+    } while(true)
+}
