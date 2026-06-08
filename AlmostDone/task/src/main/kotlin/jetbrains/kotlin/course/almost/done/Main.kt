@@ -1,7 +1,8 @@
 package jetbrains.kotlin.course.almost.done
 
 fun main() {
-    println(applySquaredFilter(cat))
+//    println(applySquaredFilter(cat))
+    photoshop()
 }
 
 fun trimPicture(picture: String): String {
@@ -98,14 +99,26 @@ fun getPicture(): String {
             "yes" -> {
                 return choosePicture()
             }
+
             "no" -> {
                 println("Please input a custom picture")
                 val customPicture = safeReadLine()
                 return customPicture
             }
+
             else -> {
                 println("Please input 'yes' or 'no'")
             }
         }
-    } while(true)
+    } while (true)
+}
+
+fun photoshop(): Unit {
+    val picture = getPicture()
+    val filterPic = chooseFilter()
+    println("The old image: \n$picture")
+
+    val applyPicFilter = applyFilter(picture, filterPic)
+    println("transformed picture: \n$applyPicFilter")
+
 }
