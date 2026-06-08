@@ -52,6 +52,10 @@ fun chooseGenerator(): String {
 // You will use this function later
 fun safeReadLine(): String = readlnOrNull() ?: error("Your input is incorrect, sorry")
 
+fun getPatternHeight(pattern: String): Int {
+    return pattern.lines().count()
+}
+
 fun main() {
     // Uncomment this code on the last step of the game
 

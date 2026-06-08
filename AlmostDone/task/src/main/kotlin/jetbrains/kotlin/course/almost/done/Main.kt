@@ -1,8 +1,7 @@
 package jetbrains.kotlin.course.almost.done
 
 fun main() {
-//    println(applySquaredFilter(cat))
-    photoshop()
+    println(applySquaredFilter(cat))
 }
 
 fun trimPicture(picture: String): String {
@@ -55,7 +54,8 @@ fun safeReadLine(): String {
 
     if (a != null) {
         return a
-    } else {
+    }
+    else {
         error("The value is null")
     }
 }
@@ -73,52 +73,4 @@ fun chooseFilter(): String {
             }
         }
     } while (true)
-}
-
-fun choosePicture(): String {
-    var chosenPicture: String?
-
-    do {
-        println("Please choose a picture. The possible options are: ${allPictures().joinToString(", ")}. Type 'exit' to cancel.")
-        val input = safeReadLine()
-        chosenPicture = when (input) {
-            in allPictures() -> getPictureByName(input) ?: error("Picture not found: $input")
-            else -> null
-        }
-    } while (chosenPicture == null)
-
-    return chosenPicture
-}
-
-fun getPicture(): String {
-    do {
-        println("Do you want to use a predefined picture or a custom one? Please input 'yes' for a predefined image or 'no' for a custom one")
-        val input = safeReadLine()
-
-        when (input) {
-            "yes" -> {
-                return choosePicture()
-            }
-
-            "no" -> {
-                println("Please input a custom picture")
-                val customPicture = safeReadLine()
-                return customPicture
-            }
-
-            else -> {
-                println("Please input 'yes' or 'no'")
-            }
-        }
-    } while (true)
-}
-
-fun photoshop(): Unit {
-    val picture = getPicture()
-    val filterPic = chooseFilter()
-    println("The old image: \n$picture")
-
-    val applyPicFilter = applyFilter(picture, filterPic)
-    println("transformed picture: \n$applyPicFilter")
-
-}
+} 
