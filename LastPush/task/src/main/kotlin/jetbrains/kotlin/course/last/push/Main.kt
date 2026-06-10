@@ -56,6 +56,18 @@ fun getPatternHeight(pattern: String): Int {
     return pattern.lines().count()
 }
 
+fun fillPatternRow(patternRow: String, patternWidth: Int): String {
+    if (patternRow.length > patternWidth) {
+        throw IllegalStateException("patternRow length > patternWidth, please check the input!")
+    } else {
+        // Calculate the number of spaces needed to fill the row
+        val spacesNeeded = patternWidth - patternRow.length
+        // Append the spaces to the patternRow
+        val filledSpace = "$separator".repeat(spacesNeeded)
+        return "$patternRow$filledSpace"
+    }
+}
+
 fun main() {
     // Uncomment this code on the last step of the game
 
