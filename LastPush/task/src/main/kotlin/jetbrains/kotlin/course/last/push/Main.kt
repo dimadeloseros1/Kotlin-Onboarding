@@ -68,6 +68,11 @@ fun fillPatternRow(patternRow: String, patternWidth: Int): String {
     }
 }
 
+fun repeatHorizontally(pattern: String, n: Int, patternWidth: Int): String {
+    val fillPattern = fillPatternRow(pattern, patternWidth)
+
+}
+
 fun main() {
     // Uncomment this code on the last step of the game
 
