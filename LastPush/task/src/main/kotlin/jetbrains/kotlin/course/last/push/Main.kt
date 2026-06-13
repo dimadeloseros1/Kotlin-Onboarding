@@ -80,6 +80,14 @@ fun repeatHorizontally(pattern: String, n: Int, patternWidth: Int): String {
     return result.toString().removeSuffix(newLineSymbol)
 }
 
+fun dropTopLine(image: String, width: Int): String {
+    val imageFirstLine = image.lines()
+    val result = ""
+    for (first in imageFirstLine.indices) {
+
+    }
+}
+
 fun main() {
     // Uncomment this code on the last step of the game
 
