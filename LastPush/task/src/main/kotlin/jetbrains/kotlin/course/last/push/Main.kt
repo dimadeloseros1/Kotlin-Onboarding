@@ -94,6 +94,25 @@ fun dropTopLine(image: String, width: Int, patternHeight: Int, patternWidth: Int
     }
 }
 
+fun canvasGenerator(pattern: String, width: Int, height: Int): String {
+    val patternWidth = getPatternWidth(pattern)
+    val patternHeight = getPatternHeight(pattern)
+    val repeatHorizontally = repeatHorizontally(pattern, width, patternWidth)
+
+    val dropLine = dropTopLine(repeatHorizontally, width, patternHeight, patternWidth)
+
+    val result = StringBuilder()
+    result.append(repeatHorizontally)
+
+    repeat(height - 1) {
+        result.append(newLineSymbol)
+        result.append(dropLine)
+    }
+
+    return result.toString()
+
+}
+
 fun main() {
     // Uncomment this code on the last step of the game
 
