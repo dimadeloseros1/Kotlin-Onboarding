@@ -11,10 +11,12 @@ fun getPattern(): String {
             "yes" -> {
                 return choosePattern()
             }
+
             "no" -> {
                 println("Please, input a custom picture")
                 return safeReadLine()
             }
+
             else -> println("Please input 'yes' or 'no'")
         }
     } while (true)
@@ -43,6 +45,7 @@ fun chooseGenerator(): String {
                 toContinue = false
                 generator = input
             }
+
             else -> println("Please, input 'canvas' or 'canvasGaps'")
         }
     } while (toContinue)
@@ -80,11 +83,14 @@ fun repeatHorizontally(pattern: String, n: Int, patternWidth: Int): String {
     return result.toString().removeSuffix(newLineSymbol)
 }
 
-fun dropTopLine(image: String, width: Int): String {
-    val imageFirstLine = image.lines()
-    val result = ""
-    for (first in imageFirstLine.indices) {
-
+fun dropTopLine(image: String, width: Int, patternHeight: Int, patternWidth: Int): String {
+    val result = StringBuilder()
+    if (patternHeight > 1) {
+        val actualLines = patternWidth * width + newLineSymbol.length
+        result.append(image.drop(actualLines))
+        return result.toString()
+    } else {
+        return image
     }
 }
 
